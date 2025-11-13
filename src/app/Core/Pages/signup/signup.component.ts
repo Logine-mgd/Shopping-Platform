@@ -47,7 +47,7 @@ export class SignupComponent {
       this._authenticationService.signup(this.signdata).subscribe({
         next: (res) => {
           console.log('Signup success:', res);
-          this._router.navigate(['/auth/login']);
+          this._router.navigate(['/auth/signin']);
         },
         error: (err) => {
           console.error(err);
