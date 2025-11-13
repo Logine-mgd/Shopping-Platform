@@ -34,5 +34,7 @@ export class UpdateauthenticationService {
         headers:{
           token:JSON.parse(this.token)
         }
-      });}
+      });
+    }
+    //
 }
