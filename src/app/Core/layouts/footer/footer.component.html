@@ -1,0 +1,27 @@
+<footer class="p-6 w-full bg-light">
+  <h3 class="font-normal text-xl pb-2">Get the FreshCart app</h3>
+  <p>We will send you a link, open it on your phone to download the app</p>
+  
+  <div class="m-2 mx-auto w-[95%] flex items-center">
+    <input type="text" placeholder="Email" class="flex-grow mr-2 rounded border border-gray-300 focus:border-blue-500 p-2">
+    <button class="bg-main text-white p-2 rounded">Share App Link</button>
+  </div>
+
+  <hr class="my-4 w-[95%] mx-auto">
+
+  <div class="m-2 mx-auto w-[95%] flex justify-between items-center">
+    <div class="flex items-center flex-wrap">
+      <span class="mr-2">Payment Partners</span>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-gray-500" [icon]="icons.faCcAmazonPay"></fa-icon>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-blue-400" [icon]="icons.faCcAmex"></fa-icon>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-orange-400" [icon]="icons.faCcMastercard"></fa-icon>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-blue-800" [icon]="icons.faCcPaypal"></fa-icon>
+    </div>
+
+    <div class="flex items-center">
+      <span class="mr-2">Get Deliveries with FreshCart</span>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-blue-900" [icon]="icons.faAppStoreIos"></fa-icon>
+      <fa-icon class="ng-fa-icon mx-2 text-xl text-main" [icon]="icons.faGooglePlay"></fa-icon>
+    </div>
+  </div>
+</footer>

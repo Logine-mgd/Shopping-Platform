@@ -1,0 +1,22 @@
+<h1 class="text-2xl font-semibold text-main m-3 pl-24">Categories</h1>
+
+<div class="container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 mx-auto p-10 w-[90%]">
+  @for (category of categories;track $index)
+   { <div class="product-card flex flex-col items-center justify-between bg-white rounded shadow hover:shadow-lg transition-shadow h-[280px] p-4 group">
+    <img [src]="category.image" [alt]="category.name" class="w-full h-[150px] object-fit rounded">
+    
+    <div class="p-2 text-center flex flex-col justify-between flex-grow">
+      <p class="text-main font-semibold line-clamp-1">{{ category.name }}</p>
+      <p class="text-gray-700 text-sm line-clamp-1">{{ category.slug }}</p>
+    </div>
+
+    <div class="flex flex-row justify-between">
+      <a [routerLink]="['/categorydetail', category._id]">
+        <button class="bg-main text-white m-1 p-1 rounded ">Details</button>
+      </a>
+      <a [routerLink]="['/categories', category._id, 'subcategories']">
+        <button class="bg-main text-white m-1 p-1 rounded ">SubCategories</button>
+      </a>
+    </div>
+  </div>}
+</div>

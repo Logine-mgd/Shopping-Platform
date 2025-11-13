@@ -1,0 +1,86 @@
+<div class="p-4 mx-auto">
+    <form class="max-w-3xl mx-auto flex flex-col" [formGroup]="signupForm" (ngSubmit)="signup()">
+        <h1 class="text-3xl font-medium pb-3">Register</h1>
+        @if(completedError)
+        {<p class="mt-2 text-lg text-red-500 bg-red-200 p-2 rounded">
+            {{ completedError }}
+        </p>}
+
+
+        <div class="mb-5">
+            <label for="name" class="block mb-2 text-sm font-medium">Name</label>
+            <input type="text" id="name" formControlName="name"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+            @if(signupForm.get('name')?.hasError('required') && signupForm.get('name')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Name is required!
+            </p>}
+        </div>
+
+        <div class="mb-5">
+            <label for="email" class="block mb-2 text-sm font-medium">Email</label>
+            <input type="text" id="email" formControlName="email"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+            @if(signupForm.get("email")?.getError("required") && signupForm.get("email")?.touched)
+            {
+            <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> You must enter your email!
+            </p>
+            }
+            @if(signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched)
+            {<p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Invalid email format!
+            </p>}
+        </div>
+
+        <div class="mb-5">
+            <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+            <input type="password" id="password" formControlName="password"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+            @if(signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched)
+            {<p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Password is required!
+            </p>}
+            @if(signupForm.get('password')?.hasError('pattern') && signupForm.get('password')?.touched)
+            {
+            <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> You must enter at least one
+                letter and one number!
+            </p>
+            }
+
+        </div>
+
+        <div class="mb-5">
+            <label for="rePassword" class="block mb-2 text-sm font-medium">Confirm Password</label>
+            <input type="password" id="rePassword" formControlName="rePassword"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+            @if(signupForm.get('rePassword')?.hasError('required') && signupForm.get('rePassword')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> You need to confirm password!
+            </p>}
+            @if(signupForm.hasError('mismatch') && signupForm.get('rePassword')?.touched)
+            {<p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Passwords do not match!
+            </p>}
+        </div>
+        
+        <div class="mb-5">
+            <label for="phone" class="block mb-2 text-sm font-medium">Phone</label>
+            <input type="text" id="phone" formControlName="phone"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+            @if(signupForm.get('phone')?.hasError('required') && signupForm.get('phone')?.touched)
+            {<p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Phone Number is required!
+            </p>}
+            @if (signupForm.get('phone')?.hasError('pattern') && signupForm.get('phone')?.touched)
+            {<p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Please Enter a valid phone number!
+            </p>}
+        </div>
+
+        <button type="submit" class="bg-main text-white p-2 rounded self-end hover:bg-blue-600 transition-all">
+            Submit
+        </button>
+    </form>
+</div>

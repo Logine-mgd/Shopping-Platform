@@ -1,0 +1,14 @@
+<div class="text-center text-2xl font-semibold text-main mb-6">
+    SubCategories
+</div>
+
+<div class="container grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 mx-auto p-10 w-[90%]">
+    @for ( sub of subcategories;track $index)
+        {
+            <div class="product-card flex flex-col items-center justify-center bg-white rounded shadow h-[150px] p-4 hover:shadow-lg transition-shadow">
+                <p class="text-main font-semibold text-center truncate">{{sub.name}}</p>
+                <p class="text-gray-700 text-sm text-center truncate">{{sub.slug}}</p>
+            </div>
+        }
+
+</div>

@@ -1,0 +1,46 @@
+<div class="p-4 mx-auto">
+    <form class="max-w-3xl mx-auto flex flex-col" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1 class="text-3xl font-medium pb-3">Log In</h1>
+
+        <div class="mb-5">
+            <label for="email" class="block mb-2 text-lg font-medium">Email</label>
+            <input type="text" id="email" formControlName="email"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+
+            @if(loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> You must enter your email!
+            </p>}
+
+            @if(loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Invalid email format!
+            </p>}
+        </div>
+
+        <div class="mb-5">
+            <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+            <input type="password" id="password" formControlName="password"
+                class="bordertext-sm rounded-lg block w-full p-2.5 border border-gray-300 focus:border-blue-200" />
+
+            @if(loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> Password is required!
+            </p>}
+
+            @if(loginForm.get('password')?.hasError('pattern') && loginForm.get('password')?.touched)
+            { <p class="mt-2 text-sm text-red-600">
+                <span class="font-medium">Oops!</span> You must enter at least one letter and one number!
+            </p>}
+        </div>
+
+        <button type="submit" class="bg-main text-white p-2 rounded self-end hover:bg-blue-600 transition-all">
+            Submit
+        </button>
+
+        @if(completedError)
+        { <p class="mt-2 text-lg text-red-500 bg-red-200 p-2 rounded">
+            {{ completedError }}
+        </p>}
+    </form>
+</div>

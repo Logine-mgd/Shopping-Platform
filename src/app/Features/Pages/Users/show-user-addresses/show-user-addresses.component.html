@@ -1,0 +1,36 @@
+<div class="container mx-auto my-10 p-4">
+    <h2 class="text-2xl font-bold text-center mb-8">Your Saved Addresses</h2>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        @for (address of addresses;track $index)
+        {<div class="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-shadow">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-semibold text-main">{{ address.name }}</h3>
+                <span class="text-gray-500 text-sm">{{ address.city }}</span>
+            </div>
+
+            <p class="text-gray-700 mb-2">
+                <span class="font-medium">Details:</span> {{ address.details }}
+            </p>
+
+            <p class="text-gray-700">
+                <span class="font-medium">Phone:</span> {{ address.phone }}
+            </p>
+
+            <div class="mt-4 flex justify-end">
+                <button (click)="removeAddress(address._id)"
+                    class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-main-dark transition-colors">
+                    Remove
+                </button>
+            </div>
+        </div>}
+    </div>
+
+    <div class="mt-4 flex justify-center">
+        <a routerLink="/adduseraddress">
+            <button class="bg-main text-white px-4 py-2 rounded-lg hover:bg-main-dark transition-colors">
+                Add New Address
+            </button>
+        </a>
+    </div>
+</div>
