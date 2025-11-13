@@ -29,5 +29,10 @@ export class UpdateauthenticationService {
     getAllUsers(): Observable<any>
     {return this._httpClient.get(`${this.baseurl}/users`)}
     verifyToken(): Observable<any>
-    {return this._httpClient.get(`${this.baseurl}/auth/verifyToken`)}
+    {return this._httpClient.get(`${this.baseurl}/auth/verifyToken`,
+      {
+        headers:{
+          token:JSON.parse(this.token)
+        }
+      });}
 }
