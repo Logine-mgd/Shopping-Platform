@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../Environments/environment';
 import { Observable } from 'rxjs';
+import { User } from '../../../Features/Interfaces/User/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class UpdateauthenticationService {
     {return this._httpClient.post(`${this.baseurl}/auth/verifyResetCode`,id)}
     resetPassword(id:string): Observable<any>
     {return this._httpClient.put(`${this.baseurl}/auth/resetPassword`,id)}
-    updateUser(id:string): Observable<any>
-    {return this._httpClient.put(`${this.baseurl}/users/updateMe`,id,
+    updateUser(us:User): Observable<any>
+    {return this._httpClient.put(`${this.baseurl}/users/updateMe`,us,
       {
         headers:{
           token:JSON.parse(this.token)

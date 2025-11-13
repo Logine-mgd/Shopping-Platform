@@ -1,0 +1,43 @@
+<section class="min-h-screen flex items-center justify-center bg-gray-50 py-10">
+    <div class="bg-white shadow-md rounded-2xl p-8 w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-main mb-6">Update User Data</h2>
+
+        <form [formGroup]="updateuserForm" (ngSubmit)="updateUser()" class="space-y-4">
+
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" formControlName="name" placeholder="Enter name"
+                    class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-main" />
+                @if (updateuserForm.get('name')?.touched && updateuserForm.get('name')?.invalid) {
+                <p class="text-red-500 text-sm mt-1">Name is required.</p>
+                }
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Email</label>
+                <textarea formControlName="email" placeholder="Enter address email"
+                    class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-main"
+                    rows="3"></textarea>
+                @if (updateuserForm.get('email')?.touched && updateuserForm.get('email')?.invalid) {
+                <p class="text-red-500 text-sm mt-1">Email are required.</p>
+                }
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Phone</label>
+                <input type="text" formControlName="phone" placeholder="Enter phone number"
+                    class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-main" />
+                @if (updateuserForm.get('phone')?.touched && updateuserForm.get('phone')?.invalid) {
+                <p class="text-red-500 text-sm mt-1">Valid 11-digit phone number is required.</p>
+                }
+            </div>
+
+            <div class="text-center">
+                <button type="submit"
+                    class="bg-main text-white px-6 py-2 rounded-xl hover:bg-main-dark transition-colors duration-200">
+                    Update
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

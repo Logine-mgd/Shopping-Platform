@@ -18,6 +18,8 @@ export const routes: Routes = [
     {path: "categories/:id/subcategories",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/sub-categ-on-categ/sub-categ-on-categ.component').then(c=> c.SubCategOnCategComponent)},
     {path: "categorydetail/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/category-detail/category-detail.component').then(c=> c.CategoryDetailComponent)},
     {path: "showuseraddress",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Users/show-user-addresses/show-user-addresses.component').then(c=> c.ShowUserAddressesComponent)},
+    {path: "updateuser",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Users/updateuserdata/updateuserdata.component').then(c=> c.UpdateuserdataComponent)},
+
     {path: "adduseraddress",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Users/add-user-address/add-user-address.component').then(c=> c.AddUserAddressComponent)},
     {path: "allorders",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Users/user-orders/user-orders.component').then(c=> c.UserOrdersComponent)},
     {path: "cart",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/cart/cart.component').then(c=> c.CartComponent)},
