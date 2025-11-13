@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Brand } from '../../Interfaces/Product/brand';
 import { BrandService } from '../../Services/brand.service';
 
 @Component({
   selector: 'app-brand-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './brand-detail.component.html',
   styleUrl: './brand-detail.component.scss'
 })

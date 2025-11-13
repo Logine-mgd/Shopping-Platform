@@ -7,7 +7,7 @@ import { Category } from '../../Interfaces/Category/category';
 @Component({
   selector: 'app-category-detail',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './category-detail.component.html',
   styleUrl: './category-detail.component.scss'
 })
