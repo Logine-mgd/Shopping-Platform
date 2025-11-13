@@ -14,6 +14,7 @@ export const routes: Routes = [
     {path: "home",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/home/home.component').then(c=> c.HomeComponent)},
     {path: "product",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/home/remainproducts/remainproducts.component').then(c=> c.RemainproductsComponent)},
     {path: "brands",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/brands/brands.component').then(c=> c.BrandsComponent)},
+    {path: "brands/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/brand-detail/brand-detail.component').then(c=> c.BrandDetailComponent)},
     {path: "productdetails/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Product/product-details/product-details.component').then(c=> c.ProductDetailsComponent)},
     {path: "categories/:id/subcategories",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/sub-categ-on-categ/sub-categ-on-categ.component').then(c=> c.SubCategOnCategComponent)},
     {path: "categorydetail/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/category-detail/category-detail.component').then(c=> c.CategoryDetailComponent)},
