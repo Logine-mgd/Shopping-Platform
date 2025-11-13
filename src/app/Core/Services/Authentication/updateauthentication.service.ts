@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../Environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../../../Features/Interfaces/User/user';
+import { Resetpass } from '../../../Shared/Interfaces/resetpass';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class UpdateauthenticationService {
     {return this._httpClient.post(`${this.baseurl}/auth/forgotPasswords`,id)}
     verifyResetCode(id:string): Observable<any>
     {return this._httpClient.post(`${this.baseurl}/auth/verifyResetCode`,id)}
-    resetPassword(id:string): Observable<any>
-    {return this._httpClient.put(`${this.baseurl}/auth/resetPassword`,id)}
+    resetPassword(resetps:Resetpass): Observable<any>
+    {return this._httpClient.put(`${this.baseurl}/auth/resetPassword`,resetps)}
     updateUser(us:User): Observable<any>
     {return this._httpClient.put(`${this.baseurl}/users/updateMe`,us,
       {

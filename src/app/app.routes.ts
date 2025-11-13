@@ -31,6 +31,7 @@ export const routes: Routes = [
     {path: "cash/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Orders/cash-order/cash-order.component').then(c=> c.CashOrderComponent)},
     {path: "wishlist",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/wish-list/wish-list.component').then(c=> c.WishListComponent)},
     {path: "subcategories",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/SubCategory/subcategory/subcategory.component').then(c=> c.SubcategoryComponent)},
-    
-    {path: "**",loadComponent: ()=> import('./Features/Pages/Error/error/error.component').then(c=> c.ErrorComponent)},     
+    {path: "resetpassword",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/resetPasword/reset-password/reset-password.component').then(c=> c.ResetPasswordComponent)},     
+    {path: "resetcode",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/resetcodepage/resetpage.component').then(c=> c.ResetpageComponent)},     
+    {path: "forgetpassword",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/forgetpassword/forgetpassword.component').then(c=> c.ForgetpasswordComponent)},     
 ];
