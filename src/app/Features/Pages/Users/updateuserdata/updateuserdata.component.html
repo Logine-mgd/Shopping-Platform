@@ -15,9 +15,9 @@
 
             <div>
                 <label class="block text-gray-700 font-medium mb-1">Email</label>
-                <textarea formControlName="email" placeholder="Enter address email"
+                <input formControlName="email" placeholder="Enter your email"
                     class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-main"
-                    rows="3"></textarea>
+                    rows="3"/>
                 @if (updateuserForm.get('email')?.touched && updateuserForm.get('email')?.invalid) {
                 <p class="text-red-500 text-sm mt-1">Email are required.</p>
                 }

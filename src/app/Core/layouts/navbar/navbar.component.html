@@ -11,30 +11,22 @@
                 class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categories</a>
             <a routerLink="/brands" routerLinkActive="active"
                 class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Brands</a>
-            <a routerLink="/cart" routerLinkActive="active"
-                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cart</a>
-            <a routerLink="/wishlist" routerLinkActive="active"
-                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Wishlist</a>
             <a routerLink="/subcategories" routerLinkActive="active"
                 class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Subcategories</a>
-            <a routerLink="/allorders" routerLinkActive="active"
-                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Your Orders</a>
-            <a routerLink="/showuseraddress" routerLinkActive="active"
-                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Address</a>
-            <a routerLink="/updateuser" routerLinkActive="active"
-                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Update Me</a>
             }
         </div>
         
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 ml-auto" id="navbar-sticky">
-            <ul
-                class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-light dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <fa-icon [icon]="icons.faInstagram" class="text-pink-500"></fa-icon> <fa-icon [icon]="icons.faTiktok"
-                    class="text-gray-500"></fa-icon> <fa-icon [icon]="icons.faTwitter" class="text-blue-500"></fa-icon>
-                <fa-icon [icon]="icons.faLinkedin" class="text-blue-500"></fa-icon> <fa-icon [icon]="icons.faYoutube"
-                    class="text-red-500"></fa-icon>
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-light dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <div class="flex gap-4 items-center">
+                    <fa-icon [icon]="icons.faInstagram" class="text-pink-500"></fa-icon>
+                    <fa-icon [icon]="icons.faTiktok" class="text-gray-500"></fa-icon>
+                    <fa-icon [icon]="icons.faTwitter" class="text-blue-500"></fa-icon>
+                    <fa-icon [icon]="icons.faLinkedin" class="text-blue-500"></fa-icon>
+                    <fa-icon [icon]="icons.faYoutube" class="text-red-500"></fa-icon>
+                </div>
                @if(!isLogged)
-            {        <li> <a routerLink="/auth/signup" routerLinkActive="active"
+            {   <li> <a routerLink="/auth/signup" routerLinkActive="active"
                         class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
                 </li>
                 <li> <a routerLink="/auth/signin" routerLinkActive="active"
@@ -43,10 +35,19 @@
                     </a>
                 </li>}
                 @else{
-                  <li> <a routerLinkActive="active" (click)="logout()"
-                        class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout
-                    </a>
-                </li>}  
+                <li> 
+                    <p-avatar routerLink="/cart" image="images/trolley.png" 
+                    class="mr-4 " size="normal"  pTooltip="Cart" tooltipPosition="bottom"  />
+                    
+                    <p-avatar routerLink="/wishlist" image="images/wish-list.png" 
+                    class="mr-4 " size="normal" pTooltip="wishlist" tooltipPosition="bottom"  />
+                    
+                    <p-avatar image="images/user.png" 
+                    class="mr-2 " size="normal" (click)="menu.toggle($event)" shape="circle" pTooltip="user" tooltipPosition="bottom" />
+                    <p-menu #menu [model]="items" [popup]="true" />
+                </li>
+            
+            }  
                 
             </ul>
         </div>

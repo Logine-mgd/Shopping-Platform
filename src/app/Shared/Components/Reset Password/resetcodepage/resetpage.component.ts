@@ -25,7 +25,7 @@ export class ResetpageComponent {
       this._UpdateauthenticationService.verifyResetCode(this.resetForm.value).subscribe({
         next: () => {
           console.log(' successfull');
-          this.router.navigate(['resetpassword']);
+          this.router.navigate(['auth/resetpassword']);
         },
         error: (err) => console.error(err),
       });

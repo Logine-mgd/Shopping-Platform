@@ -29,7 +29,10 @@ export class ResetPasswordComponent {
           this.str = "Password is reset"
           // navigate
         },
-        error: (err) => console.error(err),
+        error: (err) =>{
+           console.error(err);
+           this.str = "Email doesn't exist";
+          },
       });
     } else {
       this.resetpassForm.markAllAsTouched();

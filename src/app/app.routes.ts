@@ -8,7 +8,9 @@ export const routes: Routes = [
     {path:"auth",component:AuthComponent,children:[
         {path: "signin",canActivate:[isloggedGuard],loadComponent: ()=> import('./Core/Pages/login/login.component').then(c=> c.LoginComponent)},
         {path: "signup",canActivate:[isloggedGuard],loadComponent: ()=> import('./Core/Pages/signup/signup.component').then(c=> c.SignupComponent)},
-        {path: "resetpassword",canActivate:[authenticateGuard],loadComponent: ()=> import('./Core/Pages/reset-password/reset-password.component').then(c=> c.ResetPasswordComponent)}
+        {path: "forgetpassword",loadComponent: ()=> import('./Shared/Components/Reset Password/forgetpassword/forgetpassword.component').then(c=> c.ForgetpasswordComponent)},     
+        {path: "resetpassword",loadComponent: ()=> import('./Shared/Components/Reset Password/resetPasword/reset-password/reset-password.component').then(c=> c.ResetPasswordComponent)},     
+        {path: "resetcode",loadComponent: ()=> import('./Shared/Components/Reset Password/resetcodepage/resetpage.component').then(c=> c.ResetpageComponent)},     
     ]},
     {path: "",canActivate:[authenticateGuard],loadComponent: ()=> import('./Core/Pages/login/login.component').then(c=> c.LoginComponent)},
     {path: "home",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/home/home.component').then(c=> c.HomeComponent)},
@@ -31,7 +33,4 @@ export const routes: Routes = [
     {path: "cash/:id",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/Orders/cash-order/cash-order.component').then(c=> c.CashOrderComponent)},
     {path: "wishlist",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/wish-list/wish-list.component').then(c=> c.WishListComponent)},
     {path: "subcategories",canActivate:[authenticateGuard],loadComponent: ()=> import('./Features/Pages/SubCategory/subcategory/subcategory.component').then(c=> c.SubcategoryComponent)},
-    {path: "resetpassword",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/resetPasword/reset-password/reset-password.component').then(c=> c.ResetPasswordComponent)},     
-    {path: "resetcode",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/resetcodepage/resetpage.component').then(c=> c.ResetpageComponent)},     
-    {path: "forgetpassword",canActivate:[authenticateGuard],loadComponent: ()=> import('./Shared/Components/Reset Password/forgetpassword/forgetpassword.component').then(c=> c.ForgetpasswordComponent)},     
 ];

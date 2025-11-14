@@ -12,7 +12,7 @@ export class UpdateauthenticationService {
 
     baseurl = environment.baseURL;
     _httpClient = inject(HttpClient);
-    token:string = JSON.stringify(localStorage.getItem("loginusertoken"));
+    token !:string;
     constructor() { }
     forgotPassword(id:string): Observable<any>
     {return this._httpClient.post(`${this.baseurl}/auth/forgotPasswords`,id)}
@@ -21,7 +21,9 @@ export class UpdateauthenticationService {
     resetPassword(resetps:Resetpass): Observable<any>
     {return this._httpClient.put(`${this.baseurl}/auth/resetPassword`,resetps)}
     updateUser(us:User): Observable<any>
-    {return this._httpClient.put(`${this.baseurl}/users/updateMe`,us,
+    {
+      this.token = JSON.stringify(localStorage.getItem("loginusertoken"));
+      return this._httpClient.put(`${this.baseurl}/users/updateMe`,us,
       {
         headers:{
           token:JSON.parse(this.token)
@@ -31,7 +33,9 @@ export class UpdateauthenticationService {
     getAllUsers(): Observable<any>
     {return this._httpClient.get(`${this.baseurl}/users`)}
     verifyToken(): Observable<any>
-    {return this._httpClient.get(`${this.baseurl}/auth/verifyToken`,
+    {
+      this.token = JSON.stringify(localStorage.getItem("loginusertoken"));
+      return this._httpClient.get(`${this.baseurl}/auth/verifyToken`,
       {
         headers:{
           token:JSON.parse(this.token)

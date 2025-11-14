@@ -17,15 +17,15 @@ export class ForgetpasswordComponent {
    private _UpdateauthenticationService = inject(UpdateauthenticationService) ;
    private router = inject( Router);
     forgetpassForm:FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-  });
+    email: new FormControl('', [Validators.required,Validators.email])});
+
 
   forget(): void { 
     if (this.forgetpassForm.valid) {
       this._UpdateauthenticationService.forgotPassword(this.forgetpassForm.value).subscribe({
         next: () => {
           console.log(' successfull');
-          this.router.navigate(['resetcode']);
+          this.router.navigate(['/auth/resetcode']);
         },
         error: (err) => console.error(err),
       });
